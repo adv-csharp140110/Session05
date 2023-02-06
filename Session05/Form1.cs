@@ -80,7 +80,7 @@ namespace Session05
             //Join
             using (var ctx = new NorthWindEntities())
             {
-                ctx.Database.Log = Console.WriteLine;
+                //ctx.Database.Log = Console.WriteLine;
                 //join -> using System.Data.Entity;
                 var query = ctx.Products.Include(x => x.Category);
                 if (checkBoxDiscontinued.Checked)
@@ -134,6 +134,44 @@ namespace Session05
             var frm = new FormProduct();
             frm.ShowDialog();
             loadData();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var id = (int)dataGridView1.Rows[e.RowIndex].Cells["ColumnProductId"].Value; //unbox
+            if(dataGridView1.CurrentCell.OwningColumn.Name == "ColumnEdit")
+            {
+                var frm = new FormProduct(id);
+                frm.ShowDialog();
+                loadData();
+            }
+
+            if (dataGridView1.CurrentCell.OwningColumn.Name == "ColumnDelete")
+            {
+                if (MessageBox.Show("Are you sure?", "Delete",  MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    /**
+                     * Delete
+                     * using(var ctx = ...)
+                     * var product = ctx.find(id)
+                     * ctx.Products.remove(product)        
+                     * ctx.SaveChanges(); 
+                     */
+
+                    using (var ctx = new NorthWindEntities())
+                    {
+                        ctx.Database.Log = Console.WriteLine;
+                        var product = ctx.Products.Find(id);
+                        ctx.Products.Remove(product);
+                        //ctx.Database.ExecuteSqlCommand("delete from ....");
+
+                        //Audit Log
+
+                        ctx.SaveChanges();
+                        loadData();
+                    }
+                }
+            }
         }
     }
 }

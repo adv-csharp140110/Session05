@@ -44,6 +44,7 @@
             this.ColumnCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnDiscontinued = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ColumnEdit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColumnDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,12 +69,14 @@
             this.ColumnName,
             this.ColumnCategory,
             this.ColumnDiscontinued,
-            this.ColumnEdit});
+            this.ColumnEdit,
+            this.ColumnDelete});
             this.dataGridView1.Location = new System.Drawing.Point(12, 41);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(924, 540);
             this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // checkBoxDiscontinued
             // 
@@ -188,6 +191,14 @@
             this.ColumnEdit.Text = "Edit";
             this.ColumnEdit.UseColumnTextForButtonValue = true;
             // 
+            // ColumnDelete
+            // 
+            this.ColumnDelete.HeaderText = "Delete";
+            this.ColumnDelete.Name = "ColumnDelete";
+            this.ColumnDelete.ReadOnly = true;
+            this.ColumnDelete.Text = "Delete";
+            this.ColumnDelete.UseColumnTextForButtonValue = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -230,6 +241,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCategory;
         private System.Windows.Forms.DataGridViewCheckBoxColumn ColumnDiscontinued;
         private System.Windows.Forms.DataGridViewButtonColumn ColumnEdit;
+        private System.Windows.Forms.DataGridViewButtonColumn ColumnDelete;
     }
 }
 
