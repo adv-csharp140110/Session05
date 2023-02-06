@@ -71,10 +71,10 @@
             this.ColumnDiscontinued,
             this.ColumnEdit,
             this.ColumnDelete});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 41);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 38);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(924, 540);
+            this.dataGridView1.Size = new System.Drawing.Size(924, 543);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
