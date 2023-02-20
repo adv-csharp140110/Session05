@@ -134,6 +134,7 @@ namespace Session05
             var frm = new FormProduct();
             frm.ShowDialog();
             loadData();
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
